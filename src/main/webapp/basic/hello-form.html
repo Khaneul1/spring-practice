@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<form action="/request-param" method="post">
+<!--  requestParamServlet에 값을 보내는 것!! -->
+  username: <input type="text" name="username" />
+  age:      <input type="text" name="age" />
+  <button type="submit">전송</button>
+</form>
+</body>
+</html>
+
+<!-- request.getParameter는 두 가지를 다 지원한다!
+GET 쿼리 파라미터에 있는 ?username=kim&age=29 등의 데이터도 꺼낼 수 있고
+html 폼을 post 방식으로 보낼 때 username, age 내부에 있는 데이터도 꺼낼 수 있다!!
+
+해당 html에 username과 age 값을 입력하면 주소가 basic/hello-form.html에서 request-param으로 바뀜!
+이때 헤더/바디 정보를 확인해 보면, conten-type에 'application/x-www-form-urlencoded' 형식으로 나오는데
+이 형식은 앞서 GET에서 살펴본 쿼리 파라미터 형식과 같다
+따라서, 쿼리 파라미터 조회 메서드를 그대로 사용하면 된다!!!!
+
+클라이언트(웹 브라우저) 입장에서는 두 방식에 차이가 있지만, 서버 입장에서는 둘의 형식이 동일하므로,
+request.getParameter()로 편리하게 구분 없이 조회할 수 있다!
+-->
+
+<!-- 정리하면 request.getParameter()가 지원하는 것은
+(1) GET URL 쿼리 파라미터 형식
+(2) POST HTML Form 형식
+둘 다 지원!!
+
+일일이 html form 작성하기 귀찮을 땐 postman으로 확인하면 된다!!
+-->
